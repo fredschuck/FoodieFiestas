@@ -23,14 +23,12 @@ app.listen(port, host, () => {
     console.log(`Server running at http://${host}:${port}/`);
 });
 
-/********************
- *      Routes      *
- *******************/
-
+// Routes ***********************
 app.use('/', mainRoutes);
 app.use('/events', eventRoutes);
 
-// Error Handling
+
+// Error Handling ***************
 // app.use((req, res, next) => {
 //     let err = new Error('The server cannot locate ' + req.url);
 //     err.status = 404;
