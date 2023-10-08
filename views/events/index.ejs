@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="content">
+    <div class="body-container d-flex">
+        <% categories.forEach(category => { %>
+            <% const eventsInCategory = events.filter(event => event.category === category); %>
+            <% if (eventsInCategory.length > 0) { %>
+                <div class="event-info pb-3">
+                    <h3><%= category %></h3>
+                    <% eventsInCategory.forEach(event => { %>
+                        <a class="ps-5 pb-1" href="/events/<%= event.id %>"><%= event.title %></a>
+                    <% }); %>
+                </div>
+            <% } %>
+        <% }); %>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
