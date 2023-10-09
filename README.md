@@ -124,7 +124,7 @@ Below is an example of how you can instruct your audience on installing and sett
 [product-screenshot]: public/images/screenshot.png
 [Node.js]: https://img.shields.io/badge/node.js-7FC729?style=for-the-badge&logo=nodedotjs&logoColor=white
 [Node-url]: https://nextjs.org/
-[Express.js]: https://img.shields.io/badge/express-ffffff?style=for-the-badge&logo=express&logoColor=black
+[Express.js]: https://img.shields.io/badge/express-F6F6F6?style=for-the-badge&logo=express&logoColor=black
 [Express-url]: https://expressjs.com
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
