@@ -16,30 +16,30 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('tiny')); 
 app.use(methodOverride('_method'));
 
-app.listen(port, host, () => {
-    console.log(`Server running at http://${host}:${port}/`);
-});
-
 // Routes ***********************
 app.use('/', mainRoutes);
 app.use('/events', eventRoutes);
 
 
-// Error Handling ************************************************************
-// app.use((req, res, next) => {
-//     let err = new Error('The server cannot locate ' + req.url);
-//     err.status = 404;
-//     next(err);
-// });
+// Error Handling ***************
+app.use((req, res, next) => {
+    let err = new Error('The server cannot locate ' + req.url);
+    err.status = 404;
+    next(err);
+});
 
-// app.use((err, req, res, next) => {
-//     if(!err.status) {
-//         err.status = 500;
-//         err.message = ('Internal Server Error');
-//     }
-//     res.status(err.status);
-//     res.render('error', { 
-//         error: err,
-//         cssFileName: 'error',
-//         title: 'Error'});
-// });
+app.use((err, req, res, next) => {
+    if(!err.status) {
+        err.status = 500;
+        err.message = ('Internal Server Error');
+    }
+    res.status(err.status);
+    res.render('error', { 
+        error: err,
+        cssFileName: 'error',
+        title: 'Error'});
+});
+
+app.listen(port, host, () => {
+    console.log(`Server running at http://${host}:${port}/`);
+});
