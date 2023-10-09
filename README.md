@@ -63,7 +63,7 @@ On this platform, users can participate in events, collaborate with others, and 
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
+Use the `README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
@@ -84,8 +84,7 @@ Use the `BLANK_README.md` to get started.
 - [x] Adapt protype to Model-View-Controller architectural framework
 - [ ] Integrate database logic using MongoDB
 
-
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -106,7 +105,7 @@ Below is an example of how you can instruct your audience on installing and sett
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/fredschuck/foodie_fiesta_netApp.git
    ```
 2. Install NPM packages
    ```sh
