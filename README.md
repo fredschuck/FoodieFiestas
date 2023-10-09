@@ -77,6 +77,14 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Create prototype of application using Bootstrap, HTML, and CSS
+- [x] Adapt protype to Model-View-Controller architectural framework
+- [ ] Integrate database logic using MongoDB
+
+
 
 
 <!-- GETTING STARTED -->
