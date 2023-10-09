@@ -47,9 +47,16 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-<!-- There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+ **Foodie Fiestas** is an MVC (Model-View-Controller) web application that caters to culinary enthusiasts and food lovers. With Foodie Fiestas, users can explore a world of gastronomy. 
 
-Here's why:
+On this platform, users can participate in events, collaborate with others, and also contribute by adding and editing event details.
+
+> This application follows the REST architectural style, ensuring a user-friendly and intuitive experience for viewing, participating in, adding, and editing food events.
+
+
+ 
+
+<!-- Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
 * You shouldn't be doing the same tasks over and over like creating a README from scratch
 * You should implement DRY principles to the rest of your life :smile:
