@@ -1,6 +1,5 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="content">
     <div class="body-container d-flex">
         <% categories.forEach(category => { %>
             <% const eventsInCategory = events.filter(event => event.category === category); %>
@@ -14,6 +13,5 @@
             <% } %>
         <% }); %>
     </div>
-</div>
 
 <%- include('../partials/footer.ejs') %>
