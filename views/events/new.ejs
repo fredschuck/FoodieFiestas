@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
 <div class="body-container d-flex pt-3">
-    <form action = '/events' method = 'POST' class="new-form">
+    <form action = '/events' enctype="multipart/form-data" method = 'POST' class="new-form">
         <div class="mb-3 row">
             <label for="category" class="col-sm-2 col-form-label">Category</label>
             <div class="col-sm-9">
