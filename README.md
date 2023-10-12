@@ -6,7 +6,7 @@
 <div align="center">
     <img src="public/images/logo.png" alt="Logo" width="300px" height="">
 
-  <h3 align="center">Foodie Fiesta</h3>
+  <h3 align="center">Foodie Fiestas</h3>
 
   <p align="center">
     An Node/Express project!
