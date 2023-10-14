@@ -35,7 +35,6 @@ On this platform, users can participate in events, collaborate with others, and 
 [![Express][Express.js]][Express-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 [![MongoDB][MongoDB]][MongoDB-url]
-[![MongoDB2][MongoDB2]][MongoDB-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,5 +85,4 @@ Below is an example of how you can instruct your audience on installing and sett
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [MongoDB]: https://img.shields.io/badge/MongoDB-F5F7FA?style=for-the-badge&logo=mongodb&logoColor=6BA242
-[MongoDB-url]: https://www.mongodb.com
-[MongoDB2]: https://img.shields.io/badge/MongoDB-011E2B?style=for-the-badge&logo=mongodb&logoColor=01EC64
+[MongoDB-url]: https://www.mongodb.com/
