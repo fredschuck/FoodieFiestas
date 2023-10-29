@@ -46,7 +46,7 @@ On this platform, users can participate in events, collaborate with others, and 
 - [x] Create prototype of application using Bootstrap, HTML, and CSS
 - [x] Adapt protype to Model-View-Controller architectural framework
 - [x] Integrate database logic using MongoDB
-- [x] Deploy application to Atlas
+- [x] Connect to Atlas MongoDB database
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
