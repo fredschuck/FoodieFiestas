@@ -20,7 +20,6 @@ app.set('view engine', 'ejs');
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(()=> {
         app.listen(port, host, () => {
-            // console.log(`Server running at http://${host}:${port}/`);
             console.log(`Server running at http://${host}:${port}/`);
         });
     })

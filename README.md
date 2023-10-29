@@ -47,6 +47,7 @@ On this platform, users can participate in events, collaborate with others, and 
 - [x] Adapt protype to Model-View-Controller architectural framework
 - [x] Integrate database logic using MongoDB
 - [x] Connect to Atlas MongoDB database
+- [ ] Add user functionality
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
