@@ -1,0 +1,13 @@
+footer {
+    background-color: #333333;
+    display: flex;
+    align-content: center;
+}
+
+.icon-fill {
+    fill:#E5E5E5;
+}
+
+.icon-fill:hover {
+    fill:#E87121;
+}
