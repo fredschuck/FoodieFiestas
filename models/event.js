@@ -18,7 +18,7 @@ const eventSchema = new Schema({
 );
 
 eventSchema.methods.formatDateTime = function() {
-    const startDate = new Date(this.start);
+    const startDate = new Date(this.start); 
     const endDate = new Date(this.end);
 
     const options = { 
@@ -35,6 +35,13 @@ eventSchema.methods.formatDateTime = function() {
     return `${startDate.toLocaleDateString(undefined, options)} - ${endDate.toLocaleDateString(undefined, options)}`;
 };
 
+eventSchema.methods.processDateTime = function() {
+    const datetime = new Date(this.start); 
+    const shiftedDate = new Date(datetime.getTime() - 4 * 60 * 60 * 1000);
+    const formattedDate = shiftedDate.toISOString().slice(0, 16);
+
+    return formattedDate;
+};
 
 // collection name is 'events' in database
 module.exports = {
