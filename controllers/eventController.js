@@ -3,7 +3,7 @@ const Event = eventModule.Event; // get Event model
 
 exports.index = (req, res, next) => {
     const categories = eventModule.categories;
-    // Use the Event model to find events in the database
+
     Event.find()
         .then((events) => {
             res.render('./events/index', {
@@ -29,7 +29,11 @@ exports.new = (req, res) => {
 
 exports.show = (req, res, next) => {
     const id = req.params.id;
-
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        const err = new Error('Invalid event ID');
+        err.status = 400;
+        next(err);
+    }
     Event.findById(id)
         .then(event => {
             if (event) {
@@ -40,7 +44,7 @@ exports.show = (req, res, next) => {
                     dateTime: event.formatDateTime(event.start, event.end)
                 });
             } else {
-                const err = new Error('Cannot find event with ID ' + id);
+                const err = new Error('Cannot find event with ID: ' + id);
                 err.status = 404;
                 next(err);
             }
@@ -50,15 +54,17 @@ exports.show = (req, res, next) => {
 
 
 exports.create = (req, res, next) => {
-    // Create a new event instance using the request body
     const newEvent = new Event(req.body);
+
     if (req.file) {
         newEvent.image = req.file.filename;
     }
+    console.log("exports.create - eventController:58" + newEvent.start); // time is undefined here
     newEvent.save()
         .then((event) => {
             console.log('Event created');
             res.redirect('/events');
+            console.log("exports.create - eventController:64 " + newEvent.start); // time is undefined here
         })
         .catch((err) => {
             next(err);
@@ -66,7 +72,6 @@ exports.create = (req, res, next) => {
 };
 
 exports.edit = (req, res, next) => {
-    const categories = eventModule.categories;
     const id = req.params.id;
     
     Event.findById(id)
@@ -76,7 +81,9 @@ exports.edit = (req, res, next) => {
                     cssFileName: 'newEvent',
                     event: event, 
                     categories: eventModule.categories,
-                    title: `Editing ${event.title}...`
+                    title: `Editing ${event.title}...`,
+                    start: event.processDateTime(event.start),
+                    end: event.processDateTime(event.end)
                 });
             } else {
                 const err = new Error('Cannot find event with ID ' + id);
@@ -91,7 +98,11 @@ exports.edit = (req, res, next) => {
 exports.update = (req, res, next) => {
     const id = req.params.id;
     const updatedEvent = req.body;
-
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        const err = new Error('Invalid event ID');
+        err.status = 400;
+        next(err);
+    }
     Event.findByIdAndUpdate(id, updatedEvent, { new: true })
         .then(event => {
             if (event) {
