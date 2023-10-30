@@ -33,19 +33,19 @@
         <div class="mb-3 row">
             <label for="start" class="col-sm-2 col-form-label">Start</label>
             <div class="col-sm-9">
-                <input type="datetime-local" id="start" class="form-control" name="start" value="<%= event.start %>" required>
+                <input type="datetime-local" id="start" class="form-control" name="start" value="<%= start %>" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="end" class="col-sm-2 col-form-label">End</label>
             <div class="col-sm-9">
-                <input type="datetime-local" id="end" class="form-control" name="end" value="<%= event.end %>" required>
+                <input type="datetime-local" id="end" class="form-control" name="end" value="<%= end %>" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="details" class="col-sm-2 col-form-label">Details</label>
             <div class="col-sm-9">
-                <textarea class="form-control" id="details" rows="3" placeholder="description" name="details" required><%= event.details %></textarea>
+                <textarea class="form-control" id="details" rows="3" placeholder="description" name="details" minlength="10" required><%= event.details %></textarea>
             </div>
         </div>
         <div class="mb-3 row">
