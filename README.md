@@ -9,7 +9,7 @@
   <h3 align="center">Foodie Fiestas</h3>
 
   <p align="center">
-    An Node/Express project!
+    An Node/Express project
     <br />
     <br />
     <br />
