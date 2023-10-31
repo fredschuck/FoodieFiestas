@@ -81,7 +81,7 @@ Below is an example of how you can instruct your audience on installing and sett
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: public/images/screenshot.png
+[product-screenshot]: public/images/screenshot_2.png
 [Node.js]: https://img.shields.io/badge/node.js-7FC729?style=for-the-badge&logo=nodedotjs&logoColor=white
 [Node-url]: https://nextjs.org/
 [Express.js]: https://img.shields.io/badge/express-EEEEEE?style=for-the-badge&logo=express&logoColor=black
