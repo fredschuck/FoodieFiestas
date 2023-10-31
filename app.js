@@ -17,13 +17,18 @@ const uri =  `mongodb+srv://${db_user}:${db_password}@cluster0.t02wymf.mongodb.n
 app.set('view engine', 'ejs');
 
 // connect to MongoDB
+
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(()=> {
+    .then(() => {
         app.listen(port, host, () => {
             console.log(`Server running at http://${host}:${port}/`);
         });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+        const customError = new Error('Uh oh! MongoDB connection failed.');
+        customError.status = 400;
+        throw customError;
+    });
 
 // middleware & static files
 app.use(express.static('public'));
