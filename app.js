@@ -17,7 +17,6 @@ const uri =  `mongodb+srv://${db_user}:${db_password}@cluster0.t02wymf.mongodb.n
 app.set('view engine', 'ejs');
 
 // connect to MongoDB
-
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         app.listen(port, host, () => {
