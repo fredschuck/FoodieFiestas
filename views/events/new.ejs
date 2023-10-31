@@ -1,0 +1,66 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="body-container d-flex pt-3">
+    <form action = '/events' enctype="multipart/form-data" method = 'POST' class="new-form">
+        <div class="mb-3 row">
+            <label for="category" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-9">
+                <select id="category" class="form-select" name="category" required>
+                    <option value="" class="selected">Select a Category</option>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category %>"><%= category %></option>
+                    <% }); %>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="title" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-9">
+                <input type="text" id="title" class="form-control" name="title" placeholder="title" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="host" class="col-sm-2 col-form-label">Host</label>
+            <div class="col-sm-9">
+                <input type="text" id="host" class="form-control" name="host" placeholder="host name" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="location" class="col-sm-2 col-form-label">Where</label>
+            <div class="col-sm-9">
+                <input type="text" id="location" class="form-control" name="location" placeholder="location" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="start" class="col-sm-2 col-form-label">Start</label>
+            <div class="col-sm-9">
+                <input type="datetime-local" id="start" class="form-control" name="start" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="end" class="col-sm-2 col-form-label">End</label>
+            <div class="col-sm-9">
+                <input type="datetime-local" id="end" class="form-control" name="end" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="details" class="col-sm-2 col-form-label">Details</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="details" rows="3" placeholder="description" minlength="10" name="details" required></textarea>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="image" class="col-sm-2 col-form-label">Image</label>
+            <div class="col-sm-9">
+                <input type="file" id="image" class="form-control" name="image" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-12 offset-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

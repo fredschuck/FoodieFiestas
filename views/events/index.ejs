@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="body-container d-flex pt-3">
+    <% if (events.length > 0) { %>
+        <% categories.forEach(category => { %>
+            <% const eventsInCategory = events.filter(event => event.category === category); %>
+            <% if (eventsInCategory.length > 0) { %>
+                <div class="event-info pb-3">
+                    <!-- <h3><%= category %></h3> -->
+                    <div class="row">
+                        <% eventsInCategory.forEach(event => { %>
+                            <div class="col-md-4">
+                                <div class="card mb-3" style="background-image: url('<%= '/images/' + getBackgroundImageByCategory(category) %>')">
+                                    <div class="label">
+                                        <h6><%= category %></h6>
+                                    </div>
+                                        <div class="card-body">
+                                            <a href="/events/<%= event.id %>" class="card-link">
+                                                <div class="white-container">
+                                                    <h5 class="card-title"><%= event.title %></h5>
+                                                    <p><span class="by-tag">By</span> <%= event.host %></p>
+                                                    <p class="location"><span class="location-tag"><img src="/images/location_1.png"></span>  <%= event.location %></p> <!-- Add Location information here -->
+                                                    <div class="date-info"> <%= event.date %> </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% } %>
+        <% }); %>
+    <% } else { %>
+        <div class="event-info pb-3 text-center">
+            <h3>No events to display</h3>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<% function getBackgroundImageByCategory(category) {
+    const backgroundImages = {
+        'Cooking Workshops': 'card-1.jpg',
+        'Food and Wine Pairing Dinners': 'card-2.jpg',
+        'Chef\'s Table Dinners': 'card-3.jpg',
+        'Food Festivals': 'card-4.jpg',
+        'Culinary Tours': 'card-5.jpg'
+    };
+
+    return backgroundImages[category]; 
+} %>
