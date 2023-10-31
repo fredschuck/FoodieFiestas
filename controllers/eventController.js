@@ -55,16 +55,46 @@ exports.show = (req, res, next) => {
 
 exports.create = (req, res, next) => {
     const newEvent = new Event(req.body);
+    const missingFields = [];
 
+    if (!newEvent.category) {
+        missingFields.push('Event category');
+    } else if (!eventModule.validateCategory(newEvent.category)) {
+        missingFields.push('Event category <' + newEvent.category + '> is not a valid category');
+    }
+    if (!newEvent.title) {
+        missingFields.push('Event title');
+    }
+    if (!newEvent.start) {
+        missingFields.push('Event start time');
+    }
+    if (!newEvent.end) {
+        missingFields.push('Event end time');
+    }
+    if (!newEvent.details) {
+        missingFields.push('Event details');
+    }
+    if (!newEvent.host) {
+        missingFields.push('Event host');
+    }
+    if (!newEvent.location) {
+        missingFields.push('Event location');
+    }
+    if (!req.file) {
+        missingFields.push('Image for event');
+    }
+    if (missingFields.length > 0) {
+        const err = new Error(`Missing required fields: ${missingFields.join(', ')}`);
+        err.status = 400;
+        next(err);
+    }
     if (req.file) {
         newEvent.image = req.file.filename;
     }
-    console.log("exports.create - eventController:58" + newEvent.start); // time is undefined here
     newEvent.save()
         .then((event) => {
             console.log('Event created');
             res.redirect('/events');
-            console.log("exports.create - eventController:64 " + newEvent.start); // time is undefined here
         })
         .catch((err) => {
             next(err);

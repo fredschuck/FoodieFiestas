@@ -43,8 +43,12 @@ eventSchema.methods.processDateTime = function() {
     return formattedDate;
 };
 
-// collection name is 'events' in database
+function validateCategory(category) {
+    return categories.includes(category);
+}
+
 module.exports = {
     categories: categories,
+    validateCategory: validateCategory,
     Event: mongoose.model('Event', eventSchema, 'events')
 };
