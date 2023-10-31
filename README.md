@@ -90,5 +90,5 @@ Below is an example of how you can instruct your audience on installing and sett
 [Bootstrap-url]: https://getbootstrap.com
 [MongoDB]: https://img.shields.io/badge/MongoDB-F5F7FA?style=for-the-badge&logo=mongodb&logoColor=6BA242
 [MongoDB-url]: https://www.mongodb.com/
-[Mongoose]: https://img.shields.io/badge/Mongoose-F5F7FA?style=for-the-badge&logo=mongoose&logoColor=880000
+[Mongoose]: https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=FFFFFF
 [Mongoose-url]: https://mongoosejs.com/
