@@ -4,7 +4,7 @@ const Schema = require('mongoose').Schema;
 const categories = ['Cooking Workshops', 'Food and Wine Pairing Dinners', 'Chef\'s Table Dinners', 'Food Festivals', 'Culinary Tours'];
 
 const eventSchema = new Schema({
-    category: {type: String, required: [true, 'Category is required']},
+    category: {type: String, required: [true, 'Category is required'], enum: categories},
     title: {type: String, required: [true, 'Title is required']},
     host: {type: String, required: [true, 'Host is required']},
     location: {type: String, required: [true, 'Location is required']},
