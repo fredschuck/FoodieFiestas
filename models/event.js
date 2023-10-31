@@ -35,8 +35,8 @@ eventSchema.methods.formatDateTime = function() {
     return `${startDate.toLocaleDateString(undefined, options)} - ${endDate.toLocaleDateString(undefined, options)}`;
 };
 
-eventSchema.methods.processDateTime = function() {
-    const datetime = new Date(this.start); 
+eventSchema.methods.processDateTime = function(timeObject) {
+    const datetime = new Date(timeObject);
     const shiftedDate = new Date(datetime.getTime() - 4 * 60 * 60 * 1000);
     const formattedDate = shiftedDate.toISOString().slice(0, 16);
 
