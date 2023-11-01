@@ -14,12 +14,12 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="logo-container">
-                    <a href="/"><img id="logo" src="/images/logo.png" alt=""></a>
+                    <a href="/"><img id="logo" src="/images/logo_white.png" alt=""></a>
                 </div>
             </div>
             <div class="col-md-10 d-flex justify-content-end align-items-center">
                 <nav class="nav top-nav">
-                    <a class="nav-link" aria-current="page" href="/events/new">New Event</a>
+                    <a class="nav-link <%= title === 'New Event' ? 'active' : '' %>" aria-current="page" href="/events/new">New Event</a>
                     <a class="nav-link disabled" href="#">Sign Up</a>
                     <a class="nav-link disabled" href="#">Login</a>
                 </nav>
@@ -27,6 +27,6 @@
         </div>
         <div class="divider"></div>
         <div class="nav bottom-nav pb-1 pt-1">
-            <a class="nav-link" aria-current="page" href="/events">Events</a>
+            <a class="nav-link <%= title === 'Events' ? 'active' : '' %>" aria-current="page" href="/events">Events</a>
         </div>
     </div> 
