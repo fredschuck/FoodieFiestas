@@ -1,13 +1,19 @@
 footer {
-    background-color: #333333;
+    background-color: #84B7C3;
     display: flex;
     align-content: center;
 }
 
+
+.active{
+    background-color: #ffffff1d;
+    border-radius: 1em;
+}
+
 .icon-fill {
-    fill:#E5E5E5;
+    fill:#FFFFFF;
 }
 
 .icon-fill:hover {
-    fill:#E87121;
+    fill:#FFC3AB;
 }

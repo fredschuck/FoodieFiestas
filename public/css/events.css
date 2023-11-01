@@ -1,6 +1,25 @@
-.active {
-    color: #E87121 !important;
+@media (max-width: 768px) { /* You can adjust the max-width as needed */
+    .body-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center-align the cards horizontally */
+    }
+    .card {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
+    
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .body-container {
     display: flex;
@@ -9,6 +28,10 @@
     padding: 0 15%;
     margin: auto 0;
     min-height: 100%;
+}
+
+.container-2 {
+    align-content: center;
 }
 
 .card {
@@ -38,17 +61,18 @@
     border-radius: 5px;
     padding: 5px;
     margin-right: auto;
+    /* margin-left: .5em; */
 }
 
 .label h6 {
     margin: 0;
-    font: .75em sans-serif !important;
+    font-size: .75em !important;
+    font-style: italic;
 }
 
 .white-container {
     background-color: #ffffffb6;
     border-radius: 15px;
-
     padding: 10px;
     margin: 10px;
     min-height: 200px;
@@ -68,9 +92,10 @@
 
 .location {
     padding: .5em;
+    font-size: .8em;
     border-style: solid;
     border-width: 1px;
-    border-color: #b5b5b5;
+    border-color: #d6d6d6;
     background-color: #ffffff91;
     border-radius: 15px;
 }
@@ -82,7 +107,7 @@
     border-radius: 50%;
 }
 
-.btn {
+/* .btn {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -95,7 +120,7 @@
 .btn:hover {
     background-color: #e8712196 !important;
     border-style: none;
-}
+} */
 
 .event-info a{
     display: block;
