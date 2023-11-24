@@ -35,3 +35,16 @@
             <a class="nav-link <%= title === 'Events' ? 'active' : '' %>" aria-current="page" href="/events">Events</a>
         </div>
     </div> 
+    <div class="flash-container"> 
+        <%if(successMessages.length > 0) {
+            successMessages.forEach(message => { %>
+                <div class="success"><%= message %></div>
+            <% });
+        } %>
+    
+        <%if(errorMessages.length > 0) {
+            errorMessages.forEach(message => { %>
+                <div class="error"><%= message %></div>
+            <% });
+        } %>
+    </div>
