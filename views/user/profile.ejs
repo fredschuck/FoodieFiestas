@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="body-container d-flex pt-3">
+    <% if (events.length > 0) { %>
+        <div class="event-info pb-3">
+            <h2>My Events</h2> <!-- Title: "My Events" -->
+            <ul> <!-- List to display events -->
+                <% events.forEach(event => { %>
+                    <li>
+                        <a href="/events/<%= event.id %>">
+                            <%= event.title %> by <%= event.host %> - <%= event.date %> at <%= event.location %>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } else { %>
+        <div class="event-info pb-3 text-center">
+            <h3>No events to display</h3>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer.ejs') %>
