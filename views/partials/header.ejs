@@ -20,8 +20,13 @@
             <div class="col-md-10 d-flex justify-content-end align-items-center">
                 <nav class="nav top-nav">
                     <a class="nav-link <%= title === 'New Event' ? 'active' : '' %>" aria-current="page" href="/events/new">New Event</a>
+                    <% if (!user) { %>
                     <a class="nav-link" href="/user/new">Sign Up</a>
                     <a class="nav-link" href="/user/login">Login</a>
+                    <% } else { %>
+                    <a class="nav-link" href='/users/profile'>Profile</a>
+                    <a class="nav-link" href='/users/logout'>Logout</a>
+                    <% } %>
                 </nav>
             </div>
         </div>
