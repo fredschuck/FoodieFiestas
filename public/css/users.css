@@ -36,3 +36,33 @@ input::placeholder {
 textarea::placeholder {
     color: #a2a2a2 !important;
 }
+
+.flash-container {
+    position: absolute;
+    margin-top: 15%;
+    left: 25%;
+    width: 75%;
+    z-index: 1000;
+}
+
+.success {
+    background-color: #FFA16E;
+    color: #FFFFFF;
+    width: 70%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+    background-color: #be573d;
+    color: #FFFFFF;
+    width: 70%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
