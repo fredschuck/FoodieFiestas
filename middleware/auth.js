@@ -13,6 +13,7 @@ exports.isGuest = (req, res, next) => {
 // Check if user is authenticated
 exports.isLoggedIn = (req, res, next) => {
     if (req.session.user){
+        req.flash('error', 'You are already logged in');
         return next();
     } else {
         req.flash('error', 'You have not logged in');
