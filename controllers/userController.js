@@ -64,10 +64,11 @@ exports.login = (req, res, next)=>{
 
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([User.findById(id), Event.find({host: id})])
+    Promise.all([User.findById(id), Event.Event.find({'host': id})])
     .then(result => {
         const [user, events] = result; 
         res.render(`./user/profile`, {
+            cssFileName: 'users',
             user: user,
             events: events,
             title: `${user.firstName}'s Profile`
@@ -75,6 +76,7 @@ exports.profile = (req, res, next)=>{
     })
     .catch(err=>next(err));
 };
+
 
 exports.logout = (req, res, next)=>{
   req.session.destroy(err=>{
