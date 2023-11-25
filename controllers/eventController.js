@@ -1,9 +1,9 @@
+const User = require('../models/user');
 const eventModule = require('../models/event'); // import event module
 const Event = eventModule.Event; // get Event model
 
 exports.index = (req, res, next) => {
     const categories = eventModule.categories;
-
     Event.find()
         .then((events) => {
             res.render('./events/index', {
@@ -29,14 +29,17 @@ exports.new = (req, res) => {
 
 exports.show = (req, res, next) => {
     const id = req.params.id;
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        const err = new Error('Invalid event ID');
-        err.status = 400;
-        next(err);
-    }
+    
+    // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    //     const err = new Error('Invalid event ID');
+    //     err.status = 400;
+    //     next(err);
+    // }
     Event.findById(id)
         .then(event => {
             if (event) {
+                console.log("User " + req.session.user);
+                console.log("Author " + event.author);
                 res.render('./events/show', {
                     cssFileName: 'event',
                     event: event,
@@ -55,6 +58,8 @@ exports.show = (req, res, next) => {
 
 exports.create = (req, res, next) => {
     const newEvent = new Event(req.body);
+    newEvent.host = req.session.userName;
+    newEvent.author = req.session.user;
     const missingFields = [];
 
     if (!newEvent.category) {
@@ -73,9 +78,6 @@ exports.create = (req, res, next) => {
     }
     if (!newEvent.details) {
         missingFields.push('Event details');
-    }
-    if (!newEvent.host) {
-        missingFields.push('Event host');
     }
     if (!newEvent.location) {
         missingFields.push('Event location');
@@ -101,9 +103,8 @@ exports.create = (req, res, next) => {
         });
 };
 
-exports.edit = (req, res, next) => {
+exports.edit = (req, res, next) => { // NEEDS TO BE FIXED - IMAGE UPDATE NOT WORKING
     const id = req.params.id;
-    
     Event.findById(id)
         .then(event => {
             if (event) {
@@ -128,11 +129,11 @@ exports.edit = (req, res, next) => {
 exports.update = (req, res, next) => {
     const id = req.params.id;
     const updatedEvent = req.body;
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        const err = new Error('Invalid event ID');
-        err.status = 400;
-        next(err);
-    }
+    // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    //     const err = new Error('Invalid event ID');
+    //     err.status = 400;
+    //     next(err);
+    // }
     Event.findByIdAndUpdate(id, updatedEvent, { new: true })
         .then(event => {
             if (event) {
@@ -149,7 +150,6 @@ exports.update = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
     const id = req.params.id;
-
     Event.findByIdAndRemove(id)
         .then(event => {
             if (event) {
