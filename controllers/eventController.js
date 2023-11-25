@@ -29,13 +29,7 @@ exports.new = (req, res) => {
 
 exports.show = (req, res, next) => {
     const id = req.params.id;
-    
-    // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    //     const err = new Error('Invalid event ID');
-    //     err.status = 400;
-    //     next(err);
-    // }
-    Event.findById(id)
+    Event.findById(req.params.id).populate('host', '_id username')
         .then(event => {
             if (event) {
                 console.log("User " + req.session.user);
@@ -46,9 +40,10 @@ exports.show = (req, res, next) => {
                     title: event.title,
                     dateTime: event.formatDateTime(event.start, event.end)
                 });
-            } else {
+            }
+            else {
                 const err = new Error('Cannot find event with ID: ' + id);
-                err.status = 404;
+                err.status = 400;
                 next(err);
             }
         })
@@ -103,7 +98,7 @@ exports.create = (req, res, next) => {
         });
 };
 
-exports.edit = (req, res, next) => { // NEEDS TO BE FIXED - IMAGE UPDATE NOT WORKING
+exports.edit = (req, res, next) => { 
     const id = req.params.id;
     Event.findById(id)
         .then(event => {
@@ -129,11 +124,9 @@ exports.edit = (req, res, next) => { // NEEDS TO BE FIXED - IMAGE UPDATE NOT WOR
 exports.update = (req, res, next) => {
     const id = req.params.id;
     const updatedEvent = req.body;
-    // if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-    //     const err = new Error('Invalid event ID');
-    //     err.status = 400;
-    //     next(err);
-    // }
+    if (req.file) {
+        updatedEvent.image = req.file.filename;
+    }
     Event.findByIdAndUpdate(id, updatedEvent, { new: true })
         .then(event => {
             if (event) {
