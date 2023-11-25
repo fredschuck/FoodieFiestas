@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="body-container d-flex pt-3">
+    <form action = '/user' method = 'POST' class="new-form">
+        <div class="mb-3 row">
+            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" class="form-control" name="firstName" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="lastName" class="form-control" name="lastName" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" id="email" class="form-control" name="email"required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" class="form-control" name="password" minlength="8" maxlength="64" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-12 offset-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

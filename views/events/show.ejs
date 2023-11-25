@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>  
+
+    <div class="body-container d-flex">
+            <div class="d-flex flex-row align-items-center">
+                <div>
+                    <h3><%= event.title %></h3>
+                </div>
+            </div>
+    
+            <div class="row d-flex d-flex align-items-center mt-3">
+                <div class="col-md-4">
+                    <div class="image-container">
+                        <img class="event-image" src="<%= typeof event.image !== 'undefined' ? '/images/'+event.image : '/images/placeholder.jpg' %>" alt="">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div id="event-info">
+                        <p><strong>Host: </strong><%= event.host %></p>
+                        <p><strong>Date and Time: </strong><%= dateTime %></p>
+                        <p><strong>Location: </strong><%= event.location %></p>
+                        <p><strong>Details: </strong><%= event.details %></p>
+                    </div>
+                </div>
+            </div>
+    </div> 
+
+<%- include('../partials/footer.ejs') %>
