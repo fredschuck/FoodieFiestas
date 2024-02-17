@@ -75,7 +75,7 @@ Below is an example of how you can instruct your audience on installing and sett
 2. Install NPM packages
    ```sh
    npm install
-   ```
+   ``` 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
